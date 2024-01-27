@@ -10,11 +10,13 @@ namespace BeastBytes\Mermaid\Timeline;
 
 use BeastBytes\Mermaid\CommentTrait;
 use BeastBytes\Mermaid\Mermaid;
+use BeastBytes\Mermaid\MermaidInterface;
 use BeastBytes\Mermaid\RenderItemsTrait;
 use BeastBytes\Mermaid\TitleTrait;
 use InvalidArgumentException;
+use Stringable;
 
-final class Timeline
+final class Timeline implements MermaidInterface, Stringable
 {
     use CommentTrait;
     use RenderItemsTrait;
@@ -27,6 +29,11 @@ final class Timeline
     /** @psalm-var list<Event|Section> */
     private array $items = [];
     private ?bool $itemType = null;
+
+    public function __toString(): string
+    {
+        return $this->render();
+    }
 
     public function addEvent(Event ...$event): self
     {
@@ -66,7 +73,7 @@ final class Timeline
         return $new;
     }
 
-    public function render(): string
+    public function render(array $attributes = []): string
     {
         $output = [];
 
@@ -79,6 +86,6 @@ final class Timeline
 
         $this->renderItems($this->items, '', $output);
 
-        return Mermaid::render($output);
+        return Mermaid::render($output, $attributes);
     }
 }
