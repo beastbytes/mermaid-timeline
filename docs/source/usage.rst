@@ -5,18 +5,18 @@ Timeline allows drawing diagrams that illustrate a chronology of events, dates, 
 
 Periods
 -------
-A period has a label and one or more events; an event is a string describing the event.
+A Period has a label and one or more events; an event is a string describing the event.
 
 The periods are then added to the timeline or a section.
 
 Sections
 --------
-Periods can be grouped in sections; a section has a label and one or more periods.
+Periods can be grouped in sections; a Section has a label and one or more periods.
 
 The sections are then added to the timeline.
 
-..note::
-A timeline can only Periods or Sections
+.. note::
+A Timeline can only contain Periods or Sections, not both.
 
 Examples
 --------
