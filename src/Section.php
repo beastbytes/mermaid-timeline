@@ -1,8 +1,4 @@
 <?php
-/**
- * @copyright Copyright © 2024 BeastBytes - All rights reserved
- * @license BSD 3-Clause
- */
 
 declare(strict_types=1);
 
@@ -16,26 +12,26 @@ final class Section
     use CommentTrait;
     use RenderItemsTrait;
 
-    private const TYPE = 'section';
+    private const string SECTION = 'section %s';
 
-    /** @psalm-var list<Event> */
-    private array $events = [];
+    /** @psalm-var list<Period> */
+    private array $periods = [];
 
-    public function __construct(private readonly string $name)
+    public function __construct(private readonly string $label)
     {
     }
 
-    public function addEvent(Event ...$event): self
+    public function addPeriod(Period ...$period): self
     {
         $new = clone $this;
-        $new->events = array_merge($new->events, $event);
+        $new->periods = array_merge($new->periods, $period);
         return $new;
     }
 
-    public function withEvent(Event ...$event): self
+    public function withPeriod(Period ...$period): self
     {
         $new = clone $this;
-        $new->events = $event;
+        $new->periods = $period;
         return $new;
     }
 
@@ -43,10 +39,10 @@ final class Section
     {
         $output = [];
 
-        $this->renderComment($indentation, $output);
-        $output[] = $indentation . self::TYPE . ' ' . $this->name;
-        $this->renderItems($this->events, $indentation, $output);
+        $output[] = $this->renderComment($indentation);
+        $output[] = $indentation . sprintf(self::SECTION, $this->label);
+        $output[] = $this->renderItems($this->periods, $indentation);
 
-        return implode("\n", $output);
+        return implode("\n", array_filter($output, fn($v) => !empty($v)));
     }
 }

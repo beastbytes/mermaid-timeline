@@ -1,8 +1,4 @@
 <?php
-/**
- * @copyright Copyright © 2024 BeastBytes - All rights reserved
- * @license BSD 3-Clause
- */
 
 declare(strict_types=1);
 
@@ -12,14 +8,16 @@ use BeastBytes\Mermaid\CommentTrait;
 use BeastBytes\Mermaid\Mermaid;
 use BeastBytes\Mermaid\RenderItemsTrait;
 
-final class Event
+final class Period
 {
     use CommentTrait;
+
+    private const string EVENT = ': %s';
 
     /** @psalm-var list<string> */
     private array $events = [];
 
-    public function __construct(private readonly string $period)
+    public function __construct(private readonly string $label)
     {
     }
 
@@ -41,11 +39,13 @@ final class Event
     {
         $output = [];
 
-        $this->renderComment($indentation, $output);
-        $output[] = $indentation . $this->period;
-        $output[] = $indentation . Mermaid::INDENTATION . ': '
-            . implode("\n" . $indentation . Mermaid::INDENTATION . ': ', $this->events);
+        $output[] = $this->renderComment($indentation);
+        $output[] = $indentation . $this->label;
 
-        return implode("\n", $output);
+        foreach ($this->events as $event) {
+            $output[] = $indentation . Mermaid::INDENTATION . sprintf(self::EVENT, $event);
+        }
+
+        return implode("\n", array_filter($output, fn($v) => !empty($v)));
     }
 }
