@@ -4,6 +4,7 @@ Timeline Class
 .. php:class:: Timeline
 
     Represents a Timeline diagram
+
     .. php:method:: addPeriod(Period ...$period)
 
         Add period(s)

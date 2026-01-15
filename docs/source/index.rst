@@ -7,12 +7,12 @@ Mermaid Timeline
 Mermaid Timeline allows creation of `Mermaid Timeline diagrams <https://mermaid.js.org/syntax/timeline.html>`__ in PHP.
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents
+    :maxdepth: 2
+    :caption: Contents
 
-   installation
-   usage
-   api
+    installation
+    usage
+    api
 
 .. seealso::
 
