@@ -16,7 +16,7 @@ Periods can be grouped in sections; a Section has a label and one or more period
 The sections are then added to the timeline.
 
 .. note::
-A Timeline can only contain Periods or Sections, not both.
+    A Timeline can only contain Periods or Sections, not both.
 
 Examples
 --------
