@@ -24,9 +24,12 @@ Examples
 Timeline with Periods
 +++++++++++++++++++++
 
+PHP
+~~~
+
 .. code-block:: php
 
-    Mermaid::create(Timeline::class)
+    echo Mermaid::create(Timeline::class)
         ->withTitle('History of Social Media Platform')
         ->withPeriod(
             (new Period('2002'))
@@ -44,12 +47,51 @@ Timeline with Periods
         ->render()
     ;
 
+Generated Mermaid
+~~~~~~~~~~~~~~~~~
+
+::
+
+    <pre class="mermaid">
+    timeline
+      title History of Social Media Platform
+      2002
+        : LinkedIn
+      2004
+        : Facebook
+        : Google
+      2005
+        : YouTube
+      2006
+        : Twitter
+    </pre>
+
+Mermaid Diagram
+~~~~~~~~~~~~~~~
+
+.. mermaid::
+
+    timeline
+      title History of Social Media Platform
+      2002
+        : LinkedIn
+      2004
+        : Facebook
+        : Google
+      2005
+        : YouTube
+      2006
+        : Twitter
+
 Timeline with Sections
 ++++++++++++++++++++++
 
+PHP
+~~~
+
 .. code-block:: php
 
-    Mermaid::create(Timeline::class)
+    echo Mermaid::create(Timeline::class)
         ->withTitle('Timeline of Industrial Revolution')
         ->withSection(
             (new Section('17th-20th century'))
@@ -73,3 +115,35 @@ Timeline with Sections
         )
         ->render()
     ;
+
+Generated Mermaid
+~~~~~~~~~~~~~~~~~
+
+::
+
+    <pre class="mermaid">
+    timeline
+      title Timeline of Industrial Revolution
+      section 17th-20th century
+        Industry 1.0 : Machinery, Water power, Steam <br>power
+        Industry 2.0 : Electricity, Internal combustion engine, Mass production
+        Industry 3.0 : Electronics, Computers, Automation
+      section 21st century
+        Industry 4.0 : Internet, Robotics, Internet of Things
+        Industry 5.0 : Artificial intelligence, Big data, 3D printing
+    </pre>
+
+Mermaid Diagram
+~~~~~~~~~~~~~~~
+
+.. mermaid::
+
+    timeline
+      title Timeline of Industrial Revolution
+      section 17th-20th century
+        Industry 1.0 : Machinery, Water power, Steam <br>power
+        Industry 2.0 : Electricity, Internal combustion engine, Mass production
+        Industry 3.0 : Electronics, Computers, Automation
+      section 21st century
+        Industry 4.0 : Internet, Robotics, Internet of Things
+        Industry 5.0 : Artificial intelligence, Big data, 3D printing

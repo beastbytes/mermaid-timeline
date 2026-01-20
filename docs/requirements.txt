@@ -1,2 +1,3 @@
+furo
+sphinxcontrib.mermaid
 sphinxcontrib.phpdomain
-sphinx-rtd-theme

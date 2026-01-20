@@ -4,7 +4,7 @@
 Mermaid Timeline
 ================
 
-Mermaid Timeline allows creation of `Mermaid Timeline diagrams <https://mermaid.js.org/syntax/timeline.html>`__ in PHP.
+Mermaid Timeline allows creation of `Mermaid JS Timeline diagrams <https://mermaid.js.org/syntax/timeline.html>`__ in PHP.
 
 .. toctree::
     :maxdepth: 2
@@ -16,5 +16,8 @@ Mermaid Timeline allows creation of `Mermaid Timeline diagrams <https://mermaid.
 
 .. seealso::
 
-  `Mermaid documentation <https://beastbytes.github.io/mermaid>`__
-  
+    `Mermaid documentation <https://beastbytes.github.io/mermaid>`__
+
+    `Mermaid JS <https://mermaid.js.org>`__
+
+    `Mermaid JS Timeline diagrams <https://mermaid.js.org/syntax/timeline.html>`__
