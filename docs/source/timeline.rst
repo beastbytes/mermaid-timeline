@@ -21,12 +21,15 @@ Timeline Class
         :returns: A new instance of ``Timeline`` with the section(s) added
         :rtype: Timeline
 
-    .. php:method:: render(array $attributes)
+    .. php:method:: render(array $attributes = [])
 
-        Render the Mermaid code enclosed in a <pre> tag
+        Renders the diagram
 
-        :param array $attributes: HTML attributes for the enclosing <pre> tag
-        :returns: Mermaid code enclosed in a <pre> tag
+        :param array $attributes: HTML attributes for the <pre> tag as name=>value pairs
+
+            .. note:: The *mermaid* class is added
+
+        :returns: Mermaid diagram code in a <pre> tag
         :rtype: string
 
     .. php:method:: withComment(string $comment)
